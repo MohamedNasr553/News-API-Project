@@ -4,6 +4,7 @@ import 'package:newsapi/layout/news_app/cubit/cubit.dart';
 import 'package:newsapi/layout/news_app/cubit/states.dart';
 import 'package:newsapi/modules/news_app/search/SearchScreen.dart';
 import 'package:newsapi/shared/components/components.dart';
+import 'package:newsapi/shared/cubit/cubit.dart';
 
 class NewsLayout extends StatelessWidget {
   const NewsLayout({super.key});

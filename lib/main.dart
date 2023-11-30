@@ -5,10 +5,10 @@ import 'package:newsapi/layout/news_app/NewsLayout.dart';
 import 'package:newsapi/layout/news_app/cubit/cubit.dart';
 import 'package:newsapi/layout/news_app/cubit/states.dart';
 import 'package:newsapi/shared/bloc_observer.dart';
+import 'package:newsapi/shared/cubit/cubit.dart';
 import 'package:newsapi/shared/network/local/CacheHelper.dart';
 import 'package:newsapi/shared/network/remote/dio_helper.dart';
 import 'package:newsapi/shared/styles/themes.dart';
-
 
 void main() async {
   // ensure that everything in main method has finished then run MyApp.
@@ -37,7 +37,10 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => NewsCubit()..changeTheme()..getBusiness(),
+          create: (context) => AppCubit()..changeTheme(),
+        ),
+        BlocProvider(
+          create: (context) => NewsCubit()..getBusiness(),
         ),
       ],
       child: BlocConsumer<NewsCubit, NewsStates>(
